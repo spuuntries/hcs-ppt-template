@@ -1,0 +1,22 @@
+[package]
+name = "hcs-ppt-template"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["HCS Team", "spuun"]
+license = "MIT"
+description = "A cute yet tight Typst presentation template for academic seminars and workshops with HCS branding."
+repository = "https://github.com/hcs/hcs-ppt-template"
+keywords = [
+    "presentation",
+    "touying",
+    "slides",
+    "academic",
+    "seminar",
+    "workshop",
+]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "slides.typ"
+thumbnail = "thumbnail.png"

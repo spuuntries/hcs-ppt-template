@@ -1,0 +1,36 @@
+# Compiled outputs
+*.pdf
+output.pdf
+
+# Typst cache & build artifacts
+.typst/
+
+# Reference materials & raw assets (production assets live in src/assets/)
+refs/
+HCS-logo/
+
+# Temporary test & scratch artifacts
+test_*
+scratch/
+*.synctex.gz
+
+# Python caches (if using helper scripts)
+__pycache__/
+*.py[cod]
+.venv/
+env/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+
+# IDE & Editor configurations
+.idea/
+*.swp
+*.swo
+*~
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
