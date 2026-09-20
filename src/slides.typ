@@ -231,9 +231,10 @@
           #v(0.3em)
           #text(font: fonts.body, size: 1.2em, fill: hcs-text-muted)[#subtitle]
         ]
-        #if args.pos().len() > 0 [
+        #let extra = args.pos().filter(it => it != none and it != [])
+        #if extra.len() > 0 [
           #v(0.8em)
-          #args.pos().first()
+          #extra.first()
         ]
       ]
     )
