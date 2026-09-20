@@ -21,7 +21,7 @@
     width: 100%,
     inset: (x: 1.5cm, top: 0pt),
     stack(
-      spacing: 0.5em,
+      spacing: 1.0em,
       // Breadcrumbs / Section category
       grid(
         columns: (1fr, auto),
@@ -164,7 +164,7 @@
     config-page(
       paper: "presentation-" + aspect-ratio,
       fill: hcs-bg,
-      margin: (top: 3.0cm, bottom: 1.6cm, x: 1.5cm),
+      margin: (top: 3.4cm, bottom: 1.6cm, x: 1.5cm),
       header: _hcs-header,
       footer: _hcs-footer,
       header-ascent: 0.6cm,
