@@ -234,7 +234,7 @@
 
         // Links and emphasis
         show link: set text(fill: hcs-blue)
-        show emph: it => text(fill: hcs-navy, weight: "bold", it.body)
+        show emph: it => text(fill: hcs-navy, style: "italic", it.body)
         show strong: it => text(fill: hcs-navy, weight: "bold", it.body)
 
         body
