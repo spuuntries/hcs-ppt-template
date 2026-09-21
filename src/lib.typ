@@ -19,4 +19,12 @@
   focus-slide,
   blank-slide,
 )
+#import "@preview/cetz:0.3.4"
+#import "diagrams.typ": (
+  cetz-perceptron,
+  cetz-kan,
+  cetz-rbf,
+  cetz-pipeline,
+  cetz-pipeline-canvas,
+)
 #import "theme.typ": hcs-theme
