@@ -173,19 +173,19 @@
     content("x2", text(size: 8.5pt * factor, weight: "bold", fill: hcs-navy-dark)[$x_2$])
 
     // Distance badges with generous top/bottom padding for the tall absolute value bars
-    content((-1.18, 0.56), box(
+    content((-0.92, 0.68), box(
       fill: hcs-surface,
-      inset: (x: 4.5pt * factor, y: 4pt * factor),
+      inset: (x: 3.5pt * factor, y: 2.5pt * factor),
       radius: 3pt * factor,
       stroke: 0.8pt + rgb("#FDE68A"),
-      text(size: 7.2pt * factor, weight: "bold", fill: rgb("#B45309"))[$|x_1 - c_1|$],
+      text(size: 6.8pt * factor, weight: "bold", fill: rgb("#B45309"))[$|x_1 - c_1|$],
     ))
-    content((-1.18, -0.56), box(
+    content((-0.92, -0.68), box(
       fill: hcs-surface,
-      inset: (x: 4.5pt * factor, y: 4pt * factor),
+      inset: (x: 3.5pt * factor, y: 2.5pt * factor),
       radius: 3pt * factor,
       stroke: 0.8pt + rgb("#FDE68A"),
-      text(size: 7.2pt * factor, weight: "bold", fill: rgb("#B45309"))[$|x_2 - c_2|$],
+      text(size: 6.8pt * factor, weight: "bold", fill: rgb("#B45309"))[$|x_2 - c_2|$],
     ))
 
     // Output
