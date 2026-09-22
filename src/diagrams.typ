@@ -151,9 +151,30 @@
   input-arrow: [$bold(x)$],
   output-arrow: [$bold(z)$ / floats],
   highlight-output: true,
+  length: 1cm,
+  scale: auto,
+  title-size: auto,
+  desc-size: auto,
+  arrow-size: auto,
 ) = {
+  let user-scale = scale
+  let user-length = length
   import draw: *
   group({
+    let factor = if user-scale != auto {
+      float(user-scale)
+    } else if type(user-length) == type(1cm) {
+      float(user-length / 1cm)
+    } else if type(user-length) in (type(1), type(1.0)) {
+      float(user-length)
+    } else {
+      1.0
+    }
+
+    let t-size = if title-size != auto { title-size } else { 11.5pt * factor }
+    let d-size = if desc-size != auto { desc-size } else { 8pt * factor }
+    let a-size = if arrow-size != auto { arrow-size } else { 7.5pt * factor }
+
     let w = 3.6
     let h = 1.35
     let gap = 1.3
@@ -168,10 +189,10 @@
       stroke: 1.5pt + hcs-slate-dark,
       name: "in-box",
     )
-    let y1 = if input-desc != none { 0.16 } else { 0 }
-    content((x1, y1), text(size: 10pt, weight: "bold", fill: hcs-navy)[#input-title])
+    let y1 = if input-desc != none { 0.18 } else { 0 }
+    content((x1, y1), text(size: t-size, weight: "bold", fill: hcs-navy)[#input-title])
     if input-desc != none {
-      content((x1, -0.22), text(size: 6.8pt, fill: hcs-text-muted)[#input-desc])
+      content((x1, -0.22), text(size: d-size, fill: hcs-text-muted)[#input-desc])
     }
 
     // 2. Processing Layer (Backbone with stacked card effect)
@@ -191,10 +212,10 @@
       stroke: 1.5pt + hcs-blue,
       name: "proc-box",
     )
-    let y2 = if process-desc != none { 0.16 } else { 0 }
-    content((x2, y2), text(size: 10pt, weight: "bold", fill: hcs-navy)[#process-title])
+    let y2 = if process-desc != none { 0.18 } else { 0 }
+    content((x2, y2), text(size: t-size, weight: "bold", fill: hcs-navy)[#process-title])
     if process-desc != none {
-      content((x2, -0.22), text(size: 6.8pt, fill: hcs-text-muted)[#process-desc])
+      content((x2, -0.22), text(size: d-size, fill: hcs-text-muted)[#process-desc])
     }
 
     // 3. Output Layer (Highlighted)
@@ -209,32 +230,32 @@
       stroke: out-stroke,
       name: "out-box",
     )
-    let y3 = if output-desc != none { 0.16 } else { 0 }
-    content((x3, y3), text(size: 10pt, weight: "bold", fill: hcs-navy)[#output-title])
+    let y3 = if output-desc != none { 0.18 } else { 0 }
+    content((x3, y3), text(size: t-size, weight: "bold", fill: hcs-navy)[#output-title])
     if output-desc != none {
       content(
         (x3, -0.22),
-        text(size: 6.8pt, fill: if highlight-output { hcs-cyan-deep.darken(20%) } else { hcs-text-muted })[#output-desc],
+        text(size: d-size, fill: if highlight-output { hcs-cyan-deep.darken(20%) } else { hcs-text-muted })[#output-desc],
       )
     }
 
     // Connecting arrows
     line("in-box.east", "proc-box.west", stroke: 1.5pt + hcs-navy, mark: (end: ">", size: 0.16, fill: hcs-navy))
     if input-arrow != none {
-      content(((x1 + w/2 + x2 - w/2) / 2, 0.28), text(size: 6.5pt, weight: "bold", fill: hcs-slate-dark)[#input-arrow])
+      content(((x1 + w/2 + x2 - w/2) / 2, 0.30), text(size: a-size, weight: "bold", fill: hcs-slate-dark)[#input-arrow])
     }
 
     line("proc-box.east", "out-box.west", stroke: 1.5pt + hcs-navy, mark: (end: ">", size: 0.16, fill: hcs-navy))
     if output-arrow != none {
-      content(((x2 + w/2 + x3 - w/2) / 2, 0.28), text(size: 6.5pt, weight: "bold", fill: hcs-slate-dark)[#output-arrow])
+      content(((x2 + w/2 + x3 - w/2) / 2, 0.30), text(size: a-size, weight: "bold", fill: hcs-slate-dark)[#output-arrow])
     }
   })
 }
 
 /// Standalone canvas wrapper for cetz-pipeline
-#let cetz-pipeline-canvas(length: 1cm, ..args) = {
+#let cetz-pipeline-canvas(length: 1cm, scale: auto, ..args) = {
   canvas(length: length, {
-    cetz-pipeline(..args)
+    cetz-pipeline(length: length, scale: scale, ..args)
   })
 }
 
