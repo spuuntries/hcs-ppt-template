@@ -22,8 +22,11 @@
 #import "@preview/cetz:0.3.4"
 #import "diagrams.typ": (
   cetz-perceptron,
+  cetz-perceptron-canvas,
   cetz-kan,
+  cetz-kan-canvas,
   cetz-rbf,
+  cetz-rbf-canvas,
   cetz-pipeline,
   cetz-pipeline-canvas,
 )
